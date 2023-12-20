@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2 border-end">
+      <h4>side bar</h4>
+    </div>
+    <div class="col-5">
+      <h1 class="my-4">Projects</h1>
+      <% @projects.each do |project| %>
+        <%= link_to project_path(project) do %>
+          <div class="<%= @user.projects.include?(project) ? 'card border-info' : 'card'%> p-2 my-2">
+            <h3><%= project.name %></h3>
+            <p><%= project.description %></p>
+            <p>deadline: <%= project.deadline %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
